@@ -1,0 +1,33 @@
+# 忽略编译生成的文件
+*.o
+*.exe
+*.dll
+*.so
+*.dylib
+
+# 忽略日志文件
+*.log
+
+# 忽略其他可能的临时文件
+*.d
+*.ncb
+*.suo
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.db
+*.db-journal
+*.scc
+
+# 忽略IDE生成的文件夹
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.sublime-workspace
+*.swp
+*.swo
+*.idea
+.vscode
