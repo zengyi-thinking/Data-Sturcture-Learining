@@ -68,11 +68,16 @@ void inorderTraversalRecursive(BiTree root, int** result, int* index) {
 int* inorderTraversal(BiTree root, int* returnSize) {  
     // 先遍历树，计算节点总数  
     int size = 0;  
+    // 定义一个函数countNodes，用于计算二叉树中的节点数量
     void countNodes(BiTree node) {
         
+        // 检查当前节点是否为空，如果不为空则继续处理
         if (node) {  
+            // 递归调用countNodes函数，计算左子树中的节点数量
             countNodes(node->left);  
+            // 当前节点不为空，节点数量加1
             size++;  
+            // 递归调用countNodes函数，计算右子树中的节点数量
             countNodes(node->right);  
         }  
     }  
