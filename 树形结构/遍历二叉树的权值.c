@@ -12,7 +12,7 @@ typedef struct TreeNode
 // 定义队列结构用于层次遍历
 typedef struct Queue
 {
-    TreeNode **nodes;
+    TreeNode **nodes;// 存储节点的数组,为何要用双指针？因为我们要存储指向TreeNode的指针，而不是TreeNode本身，所以需要双指针
     int front;
     int rear;
     int capacity;
@@ -42,7 +42,7 @@ void enqueue(Queue *queue, TreeNode *node)
         // 这里简单处理，实际应用中可能需要扩容
         return;
     }
-    queue->nodes[queue->rear++] = node;
+    queue->nodes[queue->rear++] = node;//数组里面存的是指针，指向TreeNode的指针
 }
 
 // 出队
@@ -83,7 +83,7 @@ void levelOrderTraversal(TreeNode *root, int n)
         }
         if (current->right != NULL)
         {
-            enqueue(queue, current->right);
+            enqueue(queue, current->right);//出来一个节点就入队两个节点
         }
     }
 
@@ -100,7 +100,7 @@ int main()
     TreeNode **nodes = (TreeNode **)malloc(sizeof(TreeNode *) * (N + 1));
     for (int i = 1; i <= N; i++)
     {
-        nodes[i] = (TreeNode *)malloc(sizeof(TreeNode));
+        nodes[i] = (TreeNode *)malloc(sizeof(TreeNode));//数组里面存的是指针，指向TreeNode的指针
         nodes[i]->left = nodes[i]->right = NULL;
     }
 
